@@ -121,6 +121,10 @@ pulley = []
 trace_guest = ["hyperlight-host/trace_guest"]
 # Use latest wasmtime instead of the default LTS version in wasm_runtime
 wasmtime_latest = []
+# Expose generic linear-memory + globals snapshot guest funcs in wasm_runtime
+# (opt-in; default OFF). Enables the Snapshot* guest functions used to build a
+# portable byte snapshot of a loaded guest's resumable state.
+snapshot-linear-mem = []
 
 [[bench]]
 name = "benchmarks"

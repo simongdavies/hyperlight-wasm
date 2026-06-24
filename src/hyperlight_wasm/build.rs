@@ -164,6 +164,12 @@ fn build_wasm_runtime() -> PathBuf {
         cmd = cmd.arg("--features").arg("trace_guest");
     }
 
+    // Enable the "snapshot-linear-mem" feature in the runtime guest if the
+    // corresponding Cargo feature is enabled for this host build.
+    if std::env::var("CARGO_FEATURE_SNAPSHOT_LINEAR_MEM").is_ok() {
+        cmd = cmd.arg("--features").arg("snapshot-linear-mem");
+    }
+
     cmd.status()
         .unwrap_or_else(|e| panic!("could not run cargo build hyperlight-wasm-runtime: {e:?}"));
 
