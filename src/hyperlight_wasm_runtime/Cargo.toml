@@ -47,6 +47,9 @@ wasmtime_latest = ["dep:wasmtime"]
 wasmtime_lts = ["dep:wasmtime_lts"]
 gdb = ["wasmtime?/debug-builtins", "wasmtime_lts?/debug-builtins"]
 pulley = ["wasmtime?/pulley", "wasmtime_lts?/pulley"]
+# Opt-in: expose generic guest-state (linear memory + mutable globals)
+# capture/restore guest functions used to build portable byte snapshots.
+snapshot-linear-mem = []
 trace_guest = ["hyperlight-common/trace_guest", "hyperlight-guest/trace_guest", "hyperlight-guest-bin/trace_guest"]
 
 [lints.rust]
